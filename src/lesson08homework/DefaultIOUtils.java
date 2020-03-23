@@ -88,18 +88,20 @@ public class DefaultIOUtils implements IOUtils {
 		}
 		return text.contains(textToFind);
 	}
-// 	When trying to read a large file, there will be an error:
-//	Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
-//	at java.nio.file.Files.read(Unknown Source)
-//	at java.nio.file.Files.readAllBytes(Unknown Source)
-//	at lesson08homework.DefaultIOUtils.fileContainsText2(DefaultIOUtils.java:84)
-//	at lesson08homework.DefaultIOUtils$1.visitFile(DefaultIOUtils.java:74)
-//	at lesson08homework.DefaultIOUtils$1.visitFile(DefaultIOUtils.java:1)
-//	at java.nio.file.Files.walkFileTree(Unknown Source)
-//	at java.nio.file.Files.walkFileTree(Unknown Source)
-//	at lesson08homework.DefaultIOUtils.findText(DefaultIOUtils.java:71)
-//	at lesson08homework.DefaultIOUtilsTest.main(DefaultIOUtilsTest.java:29)
-//  therefore we use partial reading from a file:
+	/*
+ 	When trying to read a large file, there will be an error:
+	Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.nio.file.Files.read(Unknown Source)
+	at java.nio.file.Files.readAllBytes(Unknown Source)
+	at lesson08homework.DefaultIOUtils.fileContainsText2(DefaultIOUtils.java:84)
+	at lesson08homework.DefaultIOUtils$1.visitFile(DefaultIOUtils.java:74)
+	at lesson08homework.DefaultIOUtils$1.visitFile(DefaultIOUtils.java:1)
+	at java.nio.file.Files.walkFileTree(Unknown Source)
+	at java.nio.file.Files.walkFileTree(Unknown Source)
+	at lesson08homework.DefaultIOUtils.findText(DefaultIOUtils.java:71)
+	at lesson08homework.DefaultIOUtilsTest.main(DefaultIOUtilsTest.java:29)
+  therefore we use partial reading from a file:
+  */
 
 	protected boolean fileContainsText1(Path file, String textToFind, boolean ignoreCase) throws IOException {
 		int bufferSize = getBufferSize(textToFind);
