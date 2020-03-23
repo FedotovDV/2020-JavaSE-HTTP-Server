@@ -7,7 +7,7 @@ import java.util.*;
 
 public class FilesTest {
 	public static void main(String[] args) throws IOException {
-		Path fileDir = Paths.get("C:\\Dev\\EclipseProject\\ru.yandex.fed3375546\\resources");
+		Path fileDir = Paths.get("\\resources");
 		Path fileDelete = fileDir.resolve("text-file-copy.txt");
 		Path fileCopy = fileDir.resolve("text-file.txt");
 		Files.deleteIfExists(fileDelete);
