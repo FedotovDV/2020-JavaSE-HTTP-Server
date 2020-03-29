@@ -5,22 +5,6 @@ import java.util.concurrent.TimeUnit;
 public class ThreadLocalTest {
 	static final ThreadLocal<String> name = new ThreadLocal<>();
 	public static void main(String[] args) {
-		/* if  used
-		 * final SimpleVar<String> name = new SimpleVar<>(); 
-		 * Console:
-		 * Thread-2 
-		 * Thread-2 
-		 * Thread-2
-		 */
-		
-		
-		/* if used
-		 * final ThreadLocal<String> name = new ThreadLocal<>(); 
-		 * Console:
-		 * Thread-1
-		 * Thread-0
-		 * Thread-2
-		 */
 		
 		for (int i = 0; i < 3; i++) {
 			new Thread(new Runnable() {
@@ -60,3 +44,19 @@ public class ThreadLocalTest {
 		}
 	}
 }
+/* if  used
+ * final SimpleVar<String> name = new SimpleVar<>(); 
+ * Console:
+ * Thread-2 
+ * Thread-2 
+ * Thread-2
+ */
+
+
+/* if used
+ * final ThreadLocal<String> name = new ThreadLocal<>(); 
+ * Console:
+ * Thread-1
+ * Thread-0
+ * Thread-2
+ */
