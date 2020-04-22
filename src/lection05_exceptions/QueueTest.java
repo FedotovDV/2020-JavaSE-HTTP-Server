@@ -3,7 +3,6 @@ package lection05_exceptions;
 
 import org.junit.*;
 
-
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
@@ -43,7 +42,8 @@ public class QueueTest {
 		Queue<Integer> queue = createQueue();
 		when(dataSet.remove(0)).thenReturn(5);
 		Integer value = queue.get();
-		verify(dataSet).size();
+//		verify(dataSet).size();
+//		Не можем проверить метод size(), т.к. он final!
 		verify(dataSet).remove(0);
 		assertEquals((Integer) 5, value);
 	}
