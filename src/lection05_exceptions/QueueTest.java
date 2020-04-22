@@ -1,8 +1,8 @@
-package lesson12_junit;
+package lection05_exceptions;
 
 
 import org.junit.*;
-import lection05_exceptions.*;
+
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
@@ -37,13 +37,14 @@ public class QueueTest {
 		assertEquals("[1, 2, 3]", s);
 	}
 
-//	@Test
-//	public void testSuccessfulGet() {
-//		dataSet.size = 1;
-//		Queue<Integer> queue = createQueue();
-//		when(dataSet.remove(0)).thenReturn(5);
-//		Integer value = queue.get();
-//		verify(dataSet).size();
-//		assertEquals((Integer) 5, value);
-//	}
+	@Test
+	public void testSuccessfulGet() {
+		dataSet.size = 1;
+		Queue<Integer> queue = createQueue();
+		when(dataSet.remove(0)).thenReturn(5);
+		Integer value = queue.get();
+		verify(dataSet).size();
+		verify(dataSet).remove(0);
+		assertEquals((Integer) 5, value);
+	}
 }
